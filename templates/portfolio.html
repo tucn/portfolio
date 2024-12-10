@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>{{.Name}} - Portfolio</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f9; color: #333; }
+        header { background: #333; color: #fff; padding: 10px 0; text-align: center; }
+        h1 { margin: 0; }
+        section { margin: 20px auto; max-width: 800px; }
+        h2 { border-bottom: 2px solid #ddd; padding-bottom: 5px; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; }
+        footer { text-align: center; margin-top: 30px; color: #666; }
+    </style>
+</head>
+<body>
+    <header class="bg-gray-800 text-white text-center p-4">
+		<h1 class="text-3xl font-bold">{{.Name}}</h1>
+    </header>
+    <section class="max-w-4xl mx-auto my-8 p-4">
+		<h2 class="text-2xl font-semibold border-b-2 pb-2">Work Experiences</h2>
+        <ul class="list-disc list-inside mt-4">
+			{{range .WorkExperiences}}
+				<li class="my-2">{{.}}</li>
+			{{end}}
+        </ul>
+    </section>
+	<section class="max-w-4xl mx-auto my-8 p-4">
+		<h2 class="text-2xl font-semibold border-b-2 pb-2">Education</h2>
+        <ul class="list-disc list-inside mt-4">
+			{{range .Education}}
+				<li class="my-2">{{.}}</li>
+			{{end}}
+        </ul>
+    </section>
+    <footer>
+        <p>© 2024 {{.Name}}</p>
+    </footer>
+</body>
+</html>
