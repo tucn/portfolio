@@ -1,11 +1,10 @@
 {
     "version": 2,
     "builds": [
-      { "src": "pages/index.go", "use": "@vercel/go" }
+      { "src": "api/main.go", "use": "@vercel/go" }
     ],
     "routes": [
-      { "src": "/.*", "dest": "pages/index.go" }
+      { "src": "/.*", "dest": "api/main.go" }
     ],
     "includeFiles": ["templates/**"]
-  }
-  
+}
