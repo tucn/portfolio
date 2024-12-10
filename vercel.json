@@ -5,6 +5,7 @@
     ],
     "routes": [
       { "src": "/.*", "dest": "pages/index.go" }
-    ]
+    ],
+    "includeFiles": ["templates/**"]
   }
   

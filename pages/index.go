@@ -32,7 +32,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error loading template", http.StatusInternalServerError)
 		return
 	}
-
 	// Render the template with the data
 	tmpl.Execute(w, data)
 }
