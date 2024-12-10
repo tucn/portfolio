@@ -25,13 +25,19 @@ func loadPortfolioData() PortfolioData {
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 	data := loadPortfolioData()
-	// Load template from the templates folder
-	tmplPath := filepath.Join("templates", "portfolio.html")
-	tmpl, err := template.ParseFiles(tmplPath)
+	// Get the absolute path to the templates folder
+	basePath, err := os.Getwd()
 	if err != nil {
-		http.Error(w, "Error loading template", http.StatusInternalServerError)
+		http.Error(w, "Could not determine base path", http.StatusInternalServerError)
 		return
 	}
-	// Render the template with the data
+
+	tmplPath := filepath.Join(basePath, "templates", "portfolio.html")
+	tmpl, err := template.ParseFiles(tmplPath)
+	if err != nil {
+		http.Error(w, "Error loading template: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
 	tmpl.Execute(w, data)
 }
